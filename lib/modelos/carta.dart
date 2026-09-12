@@ -1,12 +1,15 @@
 import 'dart:math';
 
-import 'package:juego_cartas/modelos/emnumerados.dart';
+import 'package:juego_cartas/modelos/enumerados.dart';
 
 class Carta{
   final int indice;
 
   Carta(Random r) : indice = r.nextInt(52) + 1; // Genera un número aleatorio entre 1 y 52
+
   String get rutaImagen => 'assets/imagenes/CARTA$indice.JPG'; // Devuelve la ruta de la imagen correspondiente a la carta
+
+
   Pinta get pinta {
     if (indice <= 13) {
       return Pinta.TREBOL;
@@ -18,6 +21,8 @@ class Carta{
       return Pinta.DIAMANTE;
     }
   }
+
+
   NombreCarta get nombre {
     int residuo = indice % 13;
     if (residuo == 0){
